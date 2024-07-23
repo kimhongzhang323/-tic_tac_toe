@@ -47,6 +47,15 @@ void player_turn(char board[3][3], char player) {
     }
 }
 
+void boardupdate(char board[3][3], int row, int col, char player) {
+    if (row >= 0 && row < 3 && col >= 0 && col < 3 && board[row][col] == ' ') {
+        board[row][col] = player;
+    } else {
+        cout << "Invalid move. Try again\n";
+        player_turn(board, player);
+    }
+}
+
 int main() {
     char board[3][3] = { { ' ', ' ', ' ' }, 
                          { ' ', ' ', ' ' }, 
